@@ -1,0 +1,33 @@
+<router-outlet>    
+    <button type="button" routerLink="/create">create new Patient</button>
+</router-outlet>
+    
+<table>
+   <tr>
+       <th>id</th>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>birthdate</th>
+        <th>gender</th>
+        <th>address</th>
+        <th>phone number</th>
+        <th>update</th>
+        <th>delete</th>
+    </tr>
+    <tr *ngFor="let patient of (patients | async); let i=index">
+        <td>{{patient.id}}</td>
+        <td>{{patient.firstName}}</td>
+        <td>{{patient.lastName}}</td>
+        <td>{{patient.birthdate}}</td>
+        <td>{{patient.gender}}</td>
+        <td>{{patient.address}}</td>
+        <td>{{patient.phoneNumber}}</td>
+        <td><button [routerLink]="['/update', patient.id]" class="btn btn-secondary btn-sm"  type="button">                   
+            <mat-icon>create</mat-icon>
+        </button></td>
+        <td><button type="button">
+            <mat-icon>delete</mat-icon>
+        </button></td>
+    </tr>
+</table>
+

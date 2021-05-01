@@ -24,7 +24,9 @@ export class PatientCreateComponent implements OnInit {
     this.patientForm = this.formBuilder.group({
       firstName: '',
       lastName: '',
-      birthdate: '',
+      year: '',
+      month: '',
+      day: '',
       gender: '',
       address:'',
       phoneNumber:''
@@ -37,19 +39,24 @@ export class PatientCreateComponent implements OnInit {
     let patient = {
       firstName: formValue['firstName'],
       lastName: formValue['lastName'],
-      birthdate: formValue['birthdate'],
+      birthdate: formValue['year']+'-'+formValue['month']+'-'+formValue['day'],
       gender: formValue['gender'],
       address: formValue['address'],
       phoneNumber: formValue['phoneNumber']
     };      
       this.apiService.addPatient(patient).subscribe(
         result => {
+          console.log(patient);
         this.router.navigate(['/']);
         },
         error => {
           console.log(error);
         }
       );
+  }
+
+  genderSelect(event) {
+    console.log(event.target.value);
   }
 
 }

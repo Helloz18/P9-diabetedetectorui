@@ -74,5 +74,8 @@ export class PatientUpdateComponent implements OnInit {
       );
   }
 
+  genderSelect(event) {
+    console.log(event.target.value);
+  }
 
 }

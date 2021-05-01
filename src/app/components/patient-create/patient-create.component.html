@@ -1,63 +1,32 @@
-
 <form [formGroup]="patientForm">
-  
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <h4><label for="firstName">first name</label></h4>
-            </div>
-        </div>
-            <div class="col-sm-4">
-                <input id="firstName" placeholder="required" class="form-control" formControlName="firstName" required>              
-            </div>
+
+    <h4><label for="firstName">first name</label></h4>
+    <input id="firstName" placeholder="required" class="form-control" formControlName="firstName" required>
+
+    <h4><label for="lastName">last Name</label></h4>
+    <input id="lastName" placeholder="required" class="form-control" formControlName="lastName" required>
+
+    <h4><label for="birthdate">Date of birth</label></h4>
+    year<input id="year" placeholder="YYYY, example 1981" class="form-control" formControlName="year" required>
+    month <input id="month" placeholder="MM, example 10" class="form-control" formControlName="month" required>
+    day <input id="day" placeholder="dd, example 28" class="form-control" formControlName="day" required>
+
+    <h4><label for="gender">Gender (F or M)</label></h4>
+    <select id="gender" (change)="genderSelect($event)" placeholder="required" class="form-control"
+        formControlName="gender" required>
+        <option>M</option>
+        <option>F</option>
+    </select>
+
+    <h4><label for="address">address</label></h4>
+    <input id="address" class="form-control" formControlName="address">
+
+    <h4><label for="phoneNumber">phone number</label></h4>
+    <input id="phoneNumber" class="form-control" formControlName="phoneNumber">
+    
+    <div>
+        <button type="button" class="btn btn-primary space" [disabled]="!patientForm.valid" (click)="savePatient()">
+            <mat-icon>save</mat-icon>
+            Save Patient</button>
     </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <h4><label for="lastName">last Name</label></h4>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <input id="lastName" placeholder="required" class="form-control" formControlName="lastName" required>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <h4><label for="birthdate">Date of birth</label></h4>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <input data-toggle="tooltip" data-placement="top" title="format YYYY-MM-DD, ex 2000-10-31" id="birthdate" placeholder="required" class="form-control" formControlName="birthdate" required>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <h4><label for="gender">Gender</label></h4>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <input id="gender" placeholder="required" class="form-control" formControlName="gender" required>
-        </div>
-    </div>  
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <h4><label for="address">address</label></h4>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <input id="address" class="form-control" formControlName="address">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <h4><label for="phoneNumber">phone number</label></h4>
-        </div>
-        <div class="col-sm-8">
-            <input id="phoneNumber" class="form-control" formControlName="phoneNumber">
-        </div>
-    </div>
-    <button type="button" class="btn btn-primary space" [disabled]="!patientForm.valid" (click)="savePatient()">Save Patient</button>
 </form>

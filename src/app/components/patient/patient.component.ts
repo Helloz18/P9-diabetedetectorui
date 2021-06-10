@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Patient } from '../../interface/Patient';
-import { ApiService } from '../../service/Api.service';
+import { Patient } from '../../interface/patient';
+import { ApiPatientService } from '../../service/api-patient.service';
 
 @Component({
   selector: 'app-patient',
@@ -15,7 +14,7 @@ export class PatientComponent implements OnInit {
   patient: Patient;
 
   constructor(
-    private apiService: ApiService
+    private apiPatientService: ApiPatientService
   ) { }
 
   ngOnInit(): void {
@@ -23,8 +22,8 @@ export class PatientComponent implements OnInit {
   }
 
   retrievePatients() {
-    this.patients = this.apiService.getPatients();
-    this.apiService.getPatients().subscribe(
+    this.patients = this.apiPatientService.getPatients();
+    this.apiPatientService.getPatients().subscribe(
       res => {
         console.log(res);
       }

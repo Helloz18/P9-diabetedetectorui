@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { ApiService } from 'src/app/service/Api.service';
 import { switchMap } from 'rxjs/operators';
-import { Patient } from 'src/app/interface/Patient';
+import { Patient } from 'src/app/interface/patient';
 import { Observable } from 'rxjs';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { ApiPatientService } from 'src/app/service/api-patient.service';
 
 @Component({
   selector: 'app-patient-update',
@@ -19,7 +20,7 @@ export class PatientUpdateComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ApiService,
+    private apiPatientService: ApiPatientService,
     private router: Router,
     private route: ActivatedRoute
     ) { }
@@ -36,7 +37,7 @@ export class PatientUpdateComponent implements OnInit {
 
     this.patient = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.apiService.getPatientById(+params.get('id'))));
+        this.apiPatientService.getPatientById(+params.get('id'))));
     this.patient.subscribe(
        result => {
         const formValue = result;
@@ -64,9 +65,11 @@ export class PatientUpdateComponent implements OnInit {
       address: formValue['address'],
       phoneNumber: formValue['phoneNumber']
     };      
-      this.apiService.updatePatient(updatedPatient, this.id).subscribe(
+      this.apiPatientService.updatePatient(updatedPatient, this.id).subscribe(
         result => {
-        this.router.navigate(['/']);
+          if (result.type == HttpEventType.Response) {
+            this.router.navigate(['/']);
+          }
         },
         error => {
           console.log(error);

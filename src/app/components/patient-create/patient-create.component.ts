@@ -1,7 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/service/Api.service';
+import { ApiPatientService } from 'src/app/service/api-patient.service';
 
 @Injectable()
 @Component({
@@ -15,7 +15,7 @@ export class PatientCreateComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ApiService,
+    private apiPatientService: ApiPatientService,
     private router: Router
     ) { }
 
@@ -44,7 +44,7 @@ export class PatientCreateComponent implements OnInit {
       address: formValue['address'],
       phoneNumber: formValue['phoneNumber']
     };      
-      this.apiService.addPatient(patient).subscribe(
+      this.apiPatientService.addPatient(patient).subscribe(
         result => {
           console.log(patient);
         this.router.navigate(['/']);

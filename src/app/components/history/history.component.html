@@ -1,0 +1,18 @@
+<table>
+    <tr>
+         <th>title</th>
+         <th>date</th>
+         <th>doctor name</th>
+         <th>read</th>
+    </tr>
+     <tr *ngFor="let history of (patientHistory | async); let i=index">
+         <td>{{history.note.noteTitle}}</td>
+         <td>{{history.note.noteDate}}</td>
+         <td>{{history.note.doctorName}}</td>
+         <td><button [routerLink]="['/history-read', history.historyId]" class="btn btn-secondary btn-sm"  type="button">                   
+             <mat-icon>description</mat-icon>
+         </button></td>
+        </tr>
+ </table>
+ 
+ 

@@ -10,13 +10,15 @@ import { PatientCreateComponent } from './components/patient-create/patient-crea
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { HistoryComponent } from './components/history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientComponent,
     PatientUpdateComponent,
-    PatientCreateComponent
+    PatientCreateComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

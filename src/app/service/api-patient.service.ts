@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from  '@angular/common/http'; 
-import { Patient } from '../interface/Patient';
+import { Patient } from '../interface/patient';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ApiPatientService {
 
     /**
    * url to the server Java connected to the database containing Patients

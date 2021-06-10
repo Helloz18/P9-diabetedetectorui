@@ -1,1 +1,21 @@
-<p>history-create works!</p>
+
+ID : {{id}}
+<form [formGroup]="historyCreateForm">
+  
+    <h4><label for="noteTitle">Note title</label></h4>
+    <input id="noteTitle" placeholder="required" class="form-control" formControlName="noteTitle" required>
+
+    <h4><label for="doctorName">Doctor Name</label></h4>
+    <input id="doctorName" placeholder="required" class="form-control" formControlName="doctorName" required>
+
+    <h4><label for="noteDate">Date</label></h4>
+    <input id="noteDate" type="date" placeholder="required" class="form-control" formControlName="noteDate" required>
+ 
+    <h4><label for="noteContent">Note content</label></h4>
+    <input id="noteContent" type="textarea" class="form-control" rows="5" cols="33" formControlName="noteContent">
+
+    <div>
+    <button type="button" class="btn btn-primary space" [disabled]="!historyCreateForm.valid" (click)="createHistory()">Create Note</button>
+    
+</div>
+</form>

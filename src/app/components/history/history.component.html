@@ -3,13 +3,15 @@
          <th>title</th>
          <th>date</th>
          <th>doctor name</th>
-         <th>read</th>
+         <th>note</th>
+         <th>update</th>
     </tr>
      <tr *ngFor="let history of (patientHistory | async); let i=index">
          <td>{{history.note.noteTitle}}</td>
          <td>{{history.note.noteDate}}</td>
          <td>{{history.note.doctorName}}</td>
-         <td><button [routerLink]="['/history-read', history.historyId]" class="btn btn-secondary btn-sm"  type="button">                   
+         <td>{{history.note.noteContent}}</td>
+         <td><button [routerLink]="['/history-update', history.historyId]" class="btn btn-secondary btn-sm"  type="button">                   
              <mat-icon>description</mat-icon>
          </button></td>
         </tr>

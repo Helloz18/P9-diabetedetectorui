@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { HistoryComponent } from './components/history/history.component';
+import { HistoryUpdateComponent } from './components/history-update/history-update.component';
+import { HistoryCreateComponent } from './components/history-create/history-create.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HistoryComponent } from './components/history/history.component';
     PatientComponent,
     PatientUpdateComponent,
     PatientCreateComponent,
-    HistoryComponent
+    HistoryComponent,
+    HistoryUpdateComponent,
+    HistoryCreateComponent
   ],
   imports: [
     BrowserModule,

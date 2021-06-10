@@ -7,10 +7,8 @@
     <input id="lastName" placeholder="required" class="form-control" formControlName="lastName" required>
 
     <h4><label for="birthdate">Date of birth</label></h4>
-    year<input id="year" placeholder="YYYY, example 1981" class="form-control" formControlName="year" required>
-    month <input id="month" placeholder="MM, example 10" class="form-control" formControlName="month" required>
-    day <input id="day" placeholder="dd, example 28" class="form-control" formControlName="day" required>
-
+    <input id="birthdate" type="date" placeholder="required" class="form-control" formControlName="birthdate" required>
+  
     <h4><label for="gender">Gender (F or M)</label></h4>
     <select id="gender" (change)="genderSelect($event)" placeholder="required" class="form-control"
         formControlName="gender" required>

@@ -31,8 +31,18 @@ export class ApiHistoryService {
      * @param historyId of the history
      * @returns 
      */
-    getHistoryById(patId, historyId): Observable<History> {
-      return this.httpClient.get<History>(this.SERVER_HISTORY_URL+'/history/'+patId+'/'+historyId);
+    getHistoryById(historyId : string): Observable<History> {
+      return this.httpClient.get<History>(this.SERVER_HISTORY_URL+'/history-update/'+historyId);
+    }
+
+    updateHistory(history, historyId) {
+      const httpOptions = {
+        headers: new HttpHeaders({
+         'Content-Type': 'application/json'
+        })
+      }
+      const req = new HttpRequest('PUT', this.SERVER_HISTORY_URL+'/history-update/'+historyId, history, httpOptions);
+      return this.httpClient.request(req);
     }
   
     addHistory(history) {

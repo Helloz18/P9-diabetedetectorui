@@ -24,9 +24,7 @@ export class PatientCreateComponent implements OnInit {
     this.patientForm = this.formBuilder.group({
       firstName: '',
       lastName: '',
-      year: '',
-      month: '',
-      day: '',
+      birthdate: '',
       gender: '',
       address:'',
       phoneNumber:''
@@ -39,7 +37,7 @@ export class PatientCreateComponent implements OnInit {
     let patient = {
       firstName: formValue['firstName'],
       lastName: formValue['lastName'],
-      birthdate: formValue['year']+'-'+formValue['month']+'-'+formValue['day'],
+      birthdate: formValue['birthdate'],
       gender: formValue['gender'],
       address: formValue['address'],
       phoneNumber: formValue['phoneNumber']

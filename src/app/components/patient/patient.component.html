@@ -7,8 +7,9 @@
         <th>gender</th>
         <th>address</th>
         <th>phone number</th>
-        <th>update</th>
+        <th>update patient</th>
         <th>notes</th>
+        <th>add note</th>
     </tr>
     <tr *ngFor="let patient of (patients | async); let i=index">
         <td>{{patient.id}}</td>
@@ -23,6 +24,9 @@
         </button></td>
         <td><button [routerLink]="['/history', patient.id]" class="btn btn-secondary btn-sm" type="button">
             <mat-icon>art_track</mat-icon>
+        </button></td>
+        <td><button [routerLink]="['/history-create', patient.id]" class="btn btn-secondary btn-sm" type="button">
+            <mat-icon>add_box</mat-icon>
         </button></td>
     </tr>
 </table>

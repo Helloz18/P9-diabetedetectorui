@@ -6,6 +6,8 @@ import { switchMap } from 'rxjs/operators';
 import { ApiHistoryService } from 'src/app/service/api-history.service';
 import { History } from 'src/app/interface/history';
 import { HttpEventType } from '@angular/common/http';
+import { ApiPatientService } from 'src/app/service/api-patient.service';
+import { Patient } from 'src/app/interface/patient';
 
 @Component({
   selector: 'app-history-update',
@@ -18,10 +20,14 @@ export class HistoryUpdateComponent implements OnInit {
   history: Observable<History>;
   id: string;
   historyId: string;
+  patient: Observable<Patient>;
+  patientFirstName: string;
+  patientLastName: string;
   
   constructor(
     private formBuilder: FormBuilder,
     private apiHistoryService: ApiHistoryService,
+    private apiPatientService: ApiPatientService,
     private router: Router,
     private route: ActivatedRoute
     ) { }
@@ -48,8 +54,18 @@ export class HistoryUpdateComponent implements OnInit {
         });
         this.historyId = JSON.parse(formValue).historyId;
         this.id = JSON.parse(formValue).patId;
+
+        this.patient = this.apiPatientService.getPatientById(this.id);
+       this.patient.subscribe (
+         res => {
+           let value = JSON.stringify(res);
+           this.patientFirstName = JSON.parse(value).firstName;
+           this.patientLastName = JSON.parse(value).lastName;
+         }
+       )
        })
     
+       
  
   }
 

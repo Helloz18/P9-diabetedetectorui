@@ -1,20 +1,26 @@
-<table>
+<div class=container>
+    <h4>Notes of patient ID : {{patientFirstName}} {{patientLastName}}</h4>
+    <table class="table table-secondary table-striped">
+        <thead>
     <tr>
-         <th>title</th>
-         <th>date</th>
-         <th>doctor name</th>
-         <th>note</th>
-         <th>update</th>
+         <th>Title</th>
+         <th>Date</th>
+         <th>Doctor Name</th>
+         <th>Note</th>
+         <th>Edit</th>
     </tr>
+    </thead>
+    <tbody>
      <tr *ngFor="let history of (patientHistory | async); let i=index">
-         <td>{{history.note.noteTitle}}</td>
-         <td>{{history.note.noteDate}}</td>
-         <td>{{history.note.doctorName}}</td>
-         <td>{{history.note.noteContent}}</td>
-         <td><button [routerLink]="['/history-update', history.historyId]" class="btn btn-secondary btn-sm"  type="button">                   
+         <td class="align-middle">{{history.note.noteTitle}}</td>
+         <td class="align-middle">{{history.note.noteDate}}</td>
+         <td class="align-middle">{{history.note.doctorName}}</td>
+         <td class="align-middle"><pre class="beautexte">{{history.note.noteContent}}</pre></td>
+         <td class="align-middle"><button [routerLink]="['/history-update', history.historyId]"  type="button" class="btn btn-secondary">                   
              <mat-icon>description</mat-icon>
          </button></td>
         </tr>
+    </tbody>
  </table>
- 
+
  

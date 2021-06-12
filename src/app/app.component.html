@@ -1,11 +1,16 @@
-<div id="main">
-<h1>{{title}}</h1>
+<div class="container">
+    <h1>{{title}}</h1>
 
-<router-outlet> 
-    <hr>    
-    <button type="button" routerLink="/"><mat-icon>list</mat-icon>List of Patients</button>
-    <button type="button" routerLink="/create"><mat-icon>assignment_ind</mat-icon>create new Patient</button>  
-    <hr>        
-</router-outlet>
-<hr>
+    <router-outlet>
+        <hr>
+        <button class="btn btn-secondary" type="button" routerLink="/">
+            <mat-icon>list</mat-icon>List of Patients
+        </button>
+        &nbsp;
+        <button type="button" class="btn btn-secondary" routerLink="/create">
+            <mat-icon>assignment_ind</mat-icon>create new Patient
+        </button>
+        <hr>
+    </router-outlet>
+    <hr>
 </div>

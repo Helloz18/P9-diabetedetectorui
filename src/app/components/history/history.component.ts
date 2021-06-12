@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Patient } from 'src/app/interface/patient';
+import { ApiPatientService } from 'src/app/service/api-patient.service';
 import { History } from '../../interface/history';
 import { ApiHistoryService } from '../../service/api-history.service';
 
@@ -12,11 +14,14 @@ import { ApiHistoryService } from '../../service/api-history.service';
 })
 export class HistoryComponent implements OnInit {
 
-  patId: string;
   patientHistory: Observable<History>;
-
+  patient: Observable<Patient>;
+  patientFirstName : string;
+  patientLastName: string;
+ 
   constructor(
     private apiHistoryService: ApiHistoryService,
+    private apiPatientService: ApiPatientService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -25,6 +30,16 @@ export class HistoryComponent implements OnInit {
     this.patientHistory = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.apiHistoryService.getHistories(+params.get('patId'))));
-  }
-
-}
+      
+  this.patient = this.route.paramMap.pipe(switchMap((params:ParamMap) =>
+  this.apiPatientService.getPatientById(+params.get('patId'))));
+  this.patient.subscribe( 
+    res => {
+      let value = JSON.stringify(res);
+      this.patientFirstName = JSON.parse(value).firstName;
+      this.patientLastName = JSON.parse(value).lastName;
+    }
+  ) 
+    
+      }
+    }

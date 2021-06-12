@@ -1,30 +1,47 @@
-<form [formGroup]="patientForm">
+<div class="container fond">
 
-    <h4><label for="firstName">first name</label></h4>
-    <input id="firstName" placeholder="required" class="form-control" formControlName="firstName" required>
+    <form [formGroup]="patientForm">
 
-    <h4><label for="lastName">last Name</label></h4>
-    <input id="lastName" placeholder="required" class="form-control" formControlName="lastName" required>
+        <div class="row justify-content-start">
+            <div class="col-4">
+ 
+                <label for="firstName" class="form-label">first name</label>
+                <input id="firstName" placeholder="required" class="form-control" formControlName="firstName" required>
+<br>
+                <label for="birthdate" class="form-label">Date of birth</label>
+                <input id="birthdate" type="date" placeholder="required" class="form-control"
+                    formControlName="birthdate" required>
+<br>
+                <label for="address" class="form-label">address</label>
+                <input id="address" class="form-control" formControlName="address">
 
-    <h4><label for="birthdate">Date of birth</label></h4>
-    <input id="birthdate" type="date" placeholder="required" class="form-control" formControlName="birthdate" required>
-  
-    <h4><label for="gender">Gender (F or M)</label></h4>
-    <select id="gender" (change)="genderSelect($event)" placeholder="required" class="form-control"
-        formControlName="gender" required>
-        <option>M</option>
-        <option>F</option>
-    </select>
+            </div>
+            <div class="col-4">
 
-    <h4><label for="address">address</label></h4>
-    <input id="address" class="form-control" formControlName="address">
-
-    <h4><label for="phoneNumber">phone number</label></h4>
-    <input id="phoneNumber" class="form-control" formControlName="phoneNumber">
-    
-    <div>
-        <button type="button" class="btn btn-primary space" [disabled]="!patientForm.valid" (click)="savePatient()">
-            <mat-icon>save</mat-icon>
-            Save Patient</button>
-    </div>
-</form>
+                <label for="lastName" class="form-label">last Name</label>
+                <input id="lastName" placeholder="required" class="form-control" formControlName="lastName" required>
+<br>
+                <label for="gender" class="form-label">Gender (F or M)</label>
+                <select id="gender" (change)="genderSelect($event)" placeholder="required" class="form-control"
+                    formControlName="gender" required>
+                    <option>M</option>
+                    <option>F</option>
+                </select>
+<br>
+                <label for="phoneNumber" class="form-label">phone number</label>
+                <input id="phoneNumber" class="form-control" formControlName="phoneNumber">
+ 
+                <div>
+                    <br><br>
+                    <div class="position-relative">
+                
+                    <button type="button" class="btn btn-primary position-absolute bottom-0 end-0" [disabled]="!patientForm.valid"
+                        (click)="savePatient()">
+                        <mat-icon>save</mat-icon>
+                        Save Patient
+                    </button></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

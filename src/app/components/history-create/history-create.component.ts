@@ -4,7 +4,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Patient } from 'src/app/interface/patient';
 import { ApiHistoryService } from 'src/app/service/api-history.service';
+import { ApiPatientService } from 'src/app/service/api-patient.service';
 
 @Component({
   selector: 'app-history-create',
@@ -15,10 +17,14 @@ export class HistoryCreateComponent implements OnInit {
 
   historyCreateForm: FormGroup;
   id: number;
+  patient: Observable<Patient>;
+  patientFirstName: string;
+  patientLastName: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private apiHistoryService: ApiHistoryService,
+    private apiPatientService: ApiPatientService,
     private router: Router,
     private route: ActivatedRoute
   
@@ -33,6 +39,16 @@ export class HistoryCreateComponent implements OnInit {
       noteDate: '',
       noteContent:''
     });
+
+    this.patient = this.route.paramMap.pipe(switchMap((params:ParamMap) =>
+  this.apiPatientService.getPatientById(+params.get('patId'))));
+  this.patient.subscribe( 
+    res => {
+      let value = JSON.stringify(res);
+      this.patientFirstName = JSON.parse(value).firstName;
+      this.patientLastName = JSON.parse(value).lastName;
+    }
+  )
 
   }
 

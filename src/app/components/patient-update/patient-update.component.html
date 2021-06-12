@@ -1,28 +1,43 @@
+<div class="container fond">
 
-<form [formGroup]="patientUpdateForm">
-  
-    <h4><label for="firstName">first name</label></h4>
-    <input id="firstName" placeholder="required" class="form-control" formControlName="firstName" required>
+    <form [formGroup]="patientUpdateForm">
 
-    <h4><label for="lastName">last Name</label></h4>
-    <input id="lastName" placeholder="required" class="form-control" formControlName="lastName" required>
+        <div class="row justify-content-start">
+            <div class="col-4">
 
-    <h4><label for="birthdate">Date of birth</label></h4>
-    birthdate <input id="birthdate" type="date" placeholder="required" class="form-control" formControlName="birthdate" required>
+                <label for="firstName" class="form-label">first name</label>
+                <input id="firstName" placeholder="required" class="form-control" formControlName="firstName" required>
+
+                <label for="birthdate" class="form-label">Date of birth</label>
+                birthdate <input id="birthdate" type="date" placeholder="required" class="form-control"
+                    formControlName="birthdate" required>
+
+                <label for="address" class="form-label">address</label>
+                <input id="address" class="form-control" formControlName="address">
+            </div>
+
+            <div class="col-4">
+
+                <label for="lastName" class="form-label">last Name</label>
+                <input id="lastName" placeholder="required" class="form-control" formControlName="lastName" required>
+
+                <label for="gender" class="form-label">Gender</label>
+                <select id="gender" (change)="genderSelect($event)" placeholder="required" class="form-control"
+                    formControlName="gender" required>
+                    <option>M</option>
+                    <option>F</option>
+                </select>
  
-    <h4><label for="gender">Gender</label></h4>
-    <select id="gender" (change)="genderSelect($event)" placeholder="required" class="form-control"
-        formControlName="gender" required>
-        <option>M</option>
-        <option>F</option>
-    </select>
+                <label for="phoneNumber" class="form-label">phone number</label>
+                <input id="phoneNumber" class="form-control" formControlName="phoneNumber">
 
-    <h4><label for="address">address</label></h4>
-    <input id="address" class="form-control" formControlName="address">
-
-    <h4><label for="phoneNumber">phone number</label></h4>
-    <input id="phoneNumber" class="form-control" formControlName="phoneNumber">
-    <div>
-    <button type="button" class="btn btn-primary space" [disabled]="!patientUpdateForm.valid" (click)="updatePatient()">Update Patient</button>
+                <div>
+                    <br>
+                    <button type="button" class="btn btn-primary space" [disabled]="!patientUpdateForm.valid"
+                        (click)="updatePatient()">
+                        <mat-icon>save</mat-icon>Update Patient</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-</form>

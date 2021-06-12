@@ -1,21 +1,36 @@
+<div class="container fond">
+    <h4>Edit note of patient : {{patientFirstName}} {{patientLastName}}</h4>
+    <form [formGroup]="historyUpdateForm">
+        <br>
+        <div class="row justify-content-start">
+            <div class="col-4">
 
-ID : {{id}}
-<form [formGroup]="historyUpdateForm">
-  
-    <h4><label for="noteTitle">Note title</label></h4>
-    <input id="noteTitle" placeholder="required" class="form-control" formControlName="noteTitle" required>
+                <label for="noteTitle">Note title</label>
+                <input id="noteTitle" placeholder="required" class="form-control" formControlName="noteTitle" required>
+                <br>
+                <label for="doctorName">Doctor Name</label>
+                <input id="doctorName" placeholder="required" class="form-control" formControlName="doctorName"
+                    required>
+                <br>
+                <label for="noteDate">Date</label>
+                <input id="noteDate" type="date" placeholder="required" class="form-control" formControlName="noteDate"
+                    required>
+            </div>
+            <div class="col-6">
 
-    <h4><label for="doctorName">Doctor Name</label></h4>
-    <input id="doctorName" placeholder="required" class="form-control" formControlName="doctorName" required>
-
-    <h4><label for="noteDate">Date</label></h4>
-    <input id="noteDate" type="date" placeholder="required" class="form-control" formControlName="noteDate" required>
- 
-    <h4><label for="noteContent">Note content</label></h4>
-    <input id="noteContent" type="textarea" class="form-control" rows="5" cols="33" formControlName="noteContent">
-
-    <div>
-    <button type="button" class="btn btn-primary space" [disabled]="!historyUpdateForm.valid" (click)="updateHistory()">Update Note</button>
-    
+                <label for="noteContent">Note content</label>
+                <textarea id="noteContent" type="textarea" class="form-control" rows="8"
+                    formControlName="noteContent"></textarea>
+                <div>
+                    <br><br>
+                    <div class="position-relative">
+                        <button type="button" class="btn btn-primary position-absolute bottom-0 end-0"
+                            [disabled]="!historyUpdateForm.valid" (click)="updateHistory()">
+                            <mat-icon>create</mat-icon> Update Note
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-</form>

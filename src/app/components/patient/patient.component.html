@@ -1,4 +1,6 @@
-<table>
+<div class=container>
+<table class="table table-success table-striped">
+    <thead>
    <tr>
        <th>id</th>
         <th>firstname</th>
@@ -11,6 +13,9 @@
         <th>notes</th>
         <th>add note</th>
     </tr>
+</thead>
+  
+    <tbody>
     <tr *ngFor="let patient of (patients | async); let i=index">
         <td>{{patient.id}}</td>
         <td>{{patient.firstName}}</td>
@@ -29,5 +34,6 @@
             <mat-icon>add_box</mat-icon>
         </button></td>
     </tr>
+</tbody>
 </table>
-
+</div>

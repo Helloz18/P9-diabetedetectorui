@@ -32,7 +32,7 @@ export class ApiHistoryService {
      * @returns 
      */
     getHistoryById(historyId : string): Observable<History> {
-      return this.httpClient.get<History>(this.SERVER_HISTORY_URL+'/history-update/'+historyId);
+      return this.httpClient.get<History>(this.SERVER_HISTORY_URL+'/history-get/'+historyId);
     }
 
     updateHistory(history, historyId) {

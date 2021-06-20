@@ -12,6 +12,7 @@
         <th>update patient</th>
         <th>notes</th>
         <th>add note</th>
+        <th>generate report</th>
     </tr>
 </thead>
   
@@ -32,6 +33,9 @@
         </button></td>
         <td><button [routerLink]="['/history-create', patient.id]" class="btn btn-secondary btn-sm" type="button">
             <mat-icon>add_box</mat-icon>
+        </button></td>
+        <td><button (click)="createReport(patient.id)" class="btn btn-secondary btn-sm" type="button">
+            <mat-icon>assessment</mat-icon>
         </button></td>
     </tr>
 </tbody>

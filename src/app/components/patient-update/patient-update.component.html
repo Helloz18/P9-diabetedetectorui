@@ -7,11 +7,11 @@
 
                 <label for="firstName" class="form-label">first name</label>
                 <input id="firstName" placeholder="required" class="form-control" formControlName="firstName" required>
-
+<br>
                 <label for="birthdate" class="form-label">Date of birth</label>
                 birthdate <input id="birthdate" type="date" placeholder="required" class="form-control"
                     formControlName="birthdate" required>
-
+<br>
                 <label for="address" class="form-label">address</label>
                 <input id="address" class="form-control" formControlName="address">
             </div>
@@ -20,22 +20,23 @@
 
                 <label for="lastName" class="form-label">last Name</label>
                 <input id="lastName" placeholder="required" class="form-control" formControlName="lastName" required>
-
+<br>
                 <label for="gender" class="form-label">Gender</label>
                 <select id="gender" (change)="genderSelect($event)" placeholder="required" class="form-control"
                     formControlName="gender" required>
                     <option>M</option>
                     <option>F</option>
                 </select>
- 
+ <br>
                 <label for="phoneNumber" class="form-label">phone number</label>
                 <input id="phoneNumber" class="form-control" formControlName="phoneNumber">
 
                 <div>
-                    <br>
-                    <button type="button" class="btn btn-primary space" [disabled]="!patientUpdateForm.valid"
+                    <br><br>
+                    <div class="position-relative">
+                    <button type="button" class="btn btn-primary position-absolute bottom-0 end-0" [disabled]="!patientUpdateForm.valid"
                         (click)="updatePatient()">
-                        <mat-icon>save</mat-icon>Update Patient</button>
+                        <mat-icon>save</mat-icon>Update Patient</button></div>
                 </div>
             </div>
         </div>

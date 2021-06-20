@@ -6,6 +6,7 @@ import { HistoryComponent } from './components/history/history.component';
 import { PatientCreateComponent } from './components/patient-create/patient-create.component';
 import { PatientUpdateComponent } from './components/patient-update/patient-update.component';
 import { PatientComponent } from './components/patient/patient.component';
+import { ReportComponent } from './components/report/report.component';
 
 const routes: Routes = [
   
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'create', component: PatientCreateComponent },
   { path: 'history/:patId', component: HistoryComponent },
   { path: 'history-update/:historyId', component: HistoryUpdateComponent },
-  { path: 'history-create/:patId', component: HistoryCreateComponent }
+  { path: 'history-create/:patId', component: HistoryCreateComponent },
+  { path: 'report/:patId', component: ReportComponent }
 ];
 
 @NgModule({

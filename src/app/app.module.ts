@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HistoryComponent } from './components/history/history.component';
 import { HistoryUpdateComponent } from './components/history-update/history-update.component';
 import { HistoryCreateComponent } from './components/history-create/history-create.component';
+import { ReportComponent } from './components/report/report.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HistoryCreateComponent } from './components/history-create/history-crea
     PatientCreateComponent,
     HistoryComponent,
     HistoryUpdateComponent,
-    HistoryCreateComponent
+    HistoryCreateComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

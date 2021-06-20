@@ -1,3 +1,4 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -44,8 +45,9 @@ export class PatientCreateComponent implements OnInit {
     };      
       this.apiPatientService.addPatient(patient).subscribe(
         result => {
-          console.log(patient);
-        this.router.navigate(['/']);
+          if (result.type == HttpEventType.Response) {
+          this.router.navigate(['/']);
+          }
         },
         error => {
           console.log(error);

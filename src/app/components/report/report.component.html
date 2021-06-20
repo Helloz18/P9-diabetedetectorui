@@ -1,0 +1,3 @@
+<p>Patient : {{report.patientFirstName}} {{report.patientLastName}}</p>
+<p [ngClass]="{'alert alert-warning': report.patientAge >= 30}">Age : {{report.patientAge}}</p>
+<p [ngClass]="getClass(report.risk)">Risk : {{report.risk}}</p>

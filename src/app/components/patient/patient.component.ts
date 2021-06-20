@@ -39,14 +39,6 @@ export class PatientComponent implements OnInit {
 
   
   createReport(patId){
-    console.log("test" + patId);
-          this.router.navigate(['/report/'+patId]); 
-      
-        //création du rapport : envoie à report java l'id - ok
-    // report récupère depuis les deux autres api les infos dont il a besoin puis fait l'analyse
-    // quand c'est terminé : la méthode renvoie vers la page report du patient avec le contenu du rapport (objet result)
-      //[routerLink]="['/report/', patient.id]"
-      // dans cette page
-      //l'objet envoyé est parsé pour être affiché dans la page report
+    this.router.navigate(['/report/'+patId]); 
   }
 }

@@ -20,12 +20,17 @@ export class ReportComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.report = {
+      "patientFirstName":"",
+      "patientLastName":"",
+      "patientAge":0,
+      "risk":""
+    }
     this.route.paramMap.pipe(switchMap((params:ParamMap) =>
     this.apiReportService.createReport(+params.get('patId')))).subscribe(
       result => {
-        let res = "";
-        if(result.type == HttpEventType.Response) {
-          console.log("result" +result);
+        if(result.type === HttpEventType.Response) {
+          let res = "";
           res = JSON.stringify(result);
           console.log("res " + res);
           this.report = {
@@ -33,12 +38,14 @@ export class ReportComponent implements OnInit {
             "patientLastName":JSON.parse(res).body.patientLastName,
             "patientAge":JSON.parse(res).body.patientAge,
             "risk":JSON.parse(res).body.risk       
-        }
+          }
         this.getClass(this.report.risk);
-}
-})
+        }
+      })
   
 }
+
+
 getClass(risk) {
   let classList ="";
   if(risk =="None") {

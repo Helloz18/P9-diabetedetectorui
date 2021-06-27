@@ -1,6 +1,12 @@
 <div class=container>
+
     <h4>Notes of patient ID : {{patientFirstName}} {{patientLastName}}</h4>
-    <table class="table table-secondary table-striped">
+    <div>{{info}}</div>
+    Add note <button [routerLink]="['/history-create', patId]" class="btn btn-secondary btn-sm" type="button">
+        <mat-icon>add_box</mat-icon>
+    </button>
+    <table class="table table-secondary table-striped"
+    *ngIf="patientHistory | async">
         <thead>
     <tr>
          <th>Title</th>

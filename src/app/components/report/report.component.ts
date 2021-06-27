@@ -49,16 +49,16 @@ export class ReportComponent implements OnInit {
 getClass(risk) {
   let classList ="";
   if(risk =="None") {
-    classList="alert alert-secondary";
+    classList="alert alert-success";
   } 
   else if(risk =="Borderline") {
     classList="alert alert-secondary";
   } 
   else if(risk =="Early onset") {
-    classList="alert alert-secondary";
+    classList="alert alert-warning";
   } 
   else if(risk =="In danger") {
-    classList="alert alert-secondary";
+    classList="alert alert-danger";
   } 
   return classList;
 }
